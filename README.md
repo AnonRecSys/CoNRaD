@@ -1,5 +1,6 @@
 # CoNRaD
-This repository contains code and resources for the ACM WebConf 2026 submission "Content Neighborhood Ranking Distillation for Cold-Start and Long-Tail Multimodal Recommendation". 
+This repository contains code and resources for the ACM WebConf 2026 submission "Content Neighborhood Ranking Distillation for Cold-Start and Long-Tail Multimodal Recommendation".
+
 
 ### Training
 We implement CoNRaD using the [MMRec](https://github.com/enoche/MMRec) toolbox, with the same environment requirements. Where available, we use the model scripts for baseline methods from MMRec. We implement [SOIL](https://github.com/TL-UESTC/SOIL), [GUME](https://github.com/NanGongNingYi/GUME), and [TMLP](https://github.com/jessicahuang0163/TMLP) using the scripts in their respective repositories.
@@ -14,3 +15,8 @@ We also mirror MMRec's data repository structure, with separate folders for each
 We note that we remap the item indices from the original datasets to facilitate our cold-start analysis. Index maps for each datasets are included as the `item_lsts.pkl` file in each dataset folder. 
 
 Item image and text features can be downloaded from the [Google Drive link](https://drive.google.com/drive/folders/13cBy1EA_saTUuXxVllKgtfci2A09jyaG?usp=sharing) from MMRec. We include a [utility script](https://github.com/AnonRecSys/CoNRaD/blob/main/MMRec_CoNRaD/src/utils/conrad_feat_mapping.py) to remap these item features for use with our modified item indices.
+
+
+### Cold-Start
+MMRec is not set up to handle cold-start recommendation. We therefore also provide our code for this component of our work. We produce VBPR and FREEDOM results by running them in MMRec and saving the predicted features to disk to determine cold performance. The model implementations of our other baselines and the overall setup were based on the [ColdRec repository](https://github.com/YuanchenBei/ColdRec), with adjustments made to model code to improve performance and align more closely with the original implementations by the authors. We ran ALDI using its [original TensorFlow implementation](https://github.com/zfnWong/ALDI). 
+
