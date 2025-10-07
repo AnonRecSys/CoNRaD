@@ -1,0 +1,121 @@
+alpha:
+  baby_conrad:
+    LightGCN_enc: 0.5
+    LightGCN_raw: 0.98
+    MF_enc: 0.5
+    MF_raw: 0.995
+  clothing_conrad:
+    LightGCN_enc: 0.8
+    LightGCN_raw: 0.95
+    MF_enc: 0.9
+    MF_raw: 0.95
+  electronics_conrad:
+    LightGCN_enc: 0.8
+    LightGCN_raw: 0.98
+    MF_enc: 0.8
+    MF_raw: 0.995
+  sports_conrad:
+    LightGCN_enc: 0.5
+    LightGCN_raw: 0.995
+    MF_enc: 0.5
+    MF_raw: 0.995
+inference_betas:
+  baby_conrad:
+    LightGCN_enc:
+    - 8
+    LightGCN_raw:
+    - 9
+    MF_enc:
+    - 3.5
+    MF_raw:
+    - 2.5
+  clothing_conrad:
+    LightGCN_enc:
+    - 5.5
+    LightGCN_raw:
+    - 8
+    MF_enc:
+    - 6.5
+    MF_raw:
+    - 4.5
+  electronics_conrad:
+    LightGCN_enc:
+    - 12
+    LightGCN_raw:
+    - 52
+    MF_enc:
+    - 3
+    MF_raw:
+    - 6
+  sports_conrad:
+    LightGCN_enc:
+    - 5.5
+    LightGCN_raw:
+    - 17.5
+    MF_enc:
+    - 3.5
+    MF_raw:
+    - 3.5
+lambda:
+  baby_conrad:
+    LightGCN_enc: 0.005
+    LightGCN_raw: 0.1
+    MF_enc: 0.005
+    MF_raw: 1
+  clothing_conrad:
+    LightGCN_enc: 0.05
+    LightGCN_raw: 5
+    MF_enc: 0.1
+    MF_raw: 10
+  electronics_conrad:
+    LightGCN_enc: 1
+    LightGCN_raw: 10
+    MF_enc: 10
+    MF_raw: 10
+  sports_conrad:
+    LightGCN_enc: 0.01
+    LightGCN_raw: 0.1
+    MF_enc: 0.01
+    MF_raw: 5
+n_gcn_layers:
+  baby_conrad:
+    LightGCN_enc: 4
+    LightGCN_raw: 4
+    MF_enc: 0
+    MF_raw: 0
+  clothing_conrad:
+    LightGCN_enc: 2
+    LightGCN_raw: 3
+    MF_enc: 0
+    MF_raw: 0
+  electronics_conrad:
+    LightGCN_enc: 4
+    LightGCN_raw: 4
+    MF_enc: 0
+    MF_raw: 0
+  sports_conrad:
+    LightGCN_enc: 2
+    LightGCN_raw: 4
+    MF_enc: 0
+    MF_raw: 0
+tau:
+  baby_conrad:
+    LightGCN_enc: 0.05
+    LightGCN_raw: 0.15
+    MF_enc: 0.05
+    MF_raw: 0.15
+  clothing_conrad:
+    LightGCN_enc: 0.05
+    LightGCN_raw: 0.1
+    MF_enc: 0.04
+    MF_raw: 0.15
+  electronics_conrad:
+    LightGCN_enc: 0.1
+    LightGCN_raw: 0.15
+    MF_enc: 0.075
+    MF_raw: 0.2
+  sports_conrad:
+    LightGCN_enc: 0.075
+    LightGCN_raw: 0.15
+    MF_enc: 0.075
+    MF_raw: 0.2
