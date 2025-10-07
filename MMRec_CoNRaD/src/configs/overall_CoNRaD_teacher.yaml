@@ -1,0 +1,60 @@
+# general
+gpu_id: 0
+use_gpu: True
+seed: [999]
+
+# multi-modal raw features
+data_path: './data/'
+inter_splitting_label: 'x_label'
+filter_out_cod_start_users: True
+is_multimodal_model: True
+inter_file_name: sports_conrad.inter
+vision_feature_file: image_feat_mapped.npy
+text_feature_file: text_feat_mapped.npy
+
+
+checkpoint_dir: 'saved'
+save_recommended_topk: True
+recommend_topk: 'recommend_topk/'
+
+req_training: True
+clip_grad_bool: False
+# model settings
+tau: 0.2
+
+t_weight: 0.9
+weight_decay: 0.05
+hidden_size: 384
+embedding_size: 192
+
+
+hyper_parameters: ["seed"]
+
+learning_rate_scheduler: [1.0, 50]
+learning_rate: 0.001
+
+
+# training settings
+epochs: 50
+#learning_rate: 0.001
+stopping_step: 50
+train_batch_size: 4096
+learner: adam
+eval_step: 100
+
+training_neg_sample_num: 1
+use_neg_sampling: True
+use_full_sampling: False
+NEG_PREFIX: neg__
+
+USER_ID_FIELD: userID
+ITEM_ID_FIELD: itemID
+TIME_FIELD: timestamp:float
+field_separator: "\t"
+
+
+# evaluation settings
+metrics: ["Recall", "NDCG"]
+topk: [20]
+valid_metric: NDCG@20
+eval_batch_size: 17000

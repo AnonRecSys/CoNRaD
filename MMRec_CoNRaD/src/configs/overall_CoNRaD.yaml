@@ -1,0 +1,110 @@
+# general
+gpu_id: 0
+use_gpu: True
+seed: [999]
+
+# multi-modal raw features
+data_path: './data/'
+inter_splitting_label: 'x_label'
+filter_out_cod_start_users: True
+is_multimodal_model: True
+inter_file_name: sports_conrad.inter
+vision_feature_file: image_feat_mapped.npy
+text_feature_file: text_feat_mapped.npy
+
+checkpoint_dir: 'saved'
+save_recommended_topk: True
+recommend_topk: 'recommend_topk/'
+
+req_training: True
+
+# model settings
+epochs: 50
+# epochs: 15 # electronics
+
+teacher_file: knn_enc_teacher
+#teacher_file: knn_raw_teacher
+
+cf_backbone: 'LightGCN'
+#cf_backbone: 'MF'
+
+n_gcn_layers: 4
+# n_gcn_layers: [2,3,4] 
+
+alpha: 0.8 
+# alpha: [0.5, 0.7, 0.8, 0.9] ## enc
+# alpha: [0.95, 0.95, 0.98, 0.995] ## raw
+
+lambda: 1.0
+# lambda: [0.005,0.01,0.05,0.1,0.5] ## enc
+# lambda: [0.5, 1.0, 5.0, 10.0] ## enc electronics
+# lambda: [0.05, 0.1, 0.5, 1.0, 5.0, 10.0] ## raw
+
+tau: 0.1
+# tau: [0.04, 0.05, 0.075, 0.1, 0.125, 0.15] ## enc
+# tau: [0.1, 0.125, 0.15, 0.2] ## raw
+
+
+inference_betas: [5]
+# inference_betas: [3,4,5,6,7,8,9] ## enc+GCN
+# inference_betas: [10,12,14,16,18,20] ## enc+GCN electronics
+# inference_betas: [1,2,3,4,5,6,7] ## enc+MF
+
+# inference_betas: [5,6,7,8,9,10,11,12,13] ## raw+GCN baby/clothing
+# inference_betas: [10,12.5,15,17.5,20,22.5,25,27.5,30] ## raw+GCN sports
+# inference_betas: [24,28,32,36,40,44,48,52,56,60] ## raw+GCN electronics
+# inference_betas: [1,2,3,4,5,6,7] ## raw+MF
+
+t_weight: 0.9
+teacher_top_k: 50
+training_beta: 1.0
+top_per_user: 5
+pos_per_user: 5
+weight_decay: 0.05
+total_item_num: 20000
+emb_reg: 0.0
+embedding_size: 64
+
+
+hyper_parameters: ["seed"]
+
+learning_rate_scheduler: [1.0, 50]
+learning_rate: 0.001
+
+
+# training settings
+stopping_step: 50
+train_batch_size: 1024
+learner: adam
+eval_step: 100
+
+training_neg_sample_num: 1
+use_neg_sampling: True
+use_full_sampling: False
+NEG_PREFIX: neg__
+
+USER_ID_FIELD: userID
+ITEM_ID_FIELD: itemID
+TIME_FIELD: timestamp:float
+field_separator: "\t"
+
+
+# evaluation settings
+metrics: ["Recall", "NDCG"]
+topk: [20]
+valid_metric: NDCG@20
+eval_batch_size: 17000
+
+#
+#use_raw_features: False
+#max_txt_len: 32
+#max_img_size: 256
+#vocab_size: 30522
+#type_vocab_size: 2
+#hidden_size: 4
+#pad_token_id: 0
+#max_position_embeddings: 512
+#layer_norm_eps: 1e-12
+#hidden_dropout_prob: 0.1
+#
+#end2end: False
